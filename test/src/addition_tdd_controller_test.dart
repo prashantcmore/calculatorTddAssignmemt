@@ -36,12 +36,22 @@ void main() {
 
   test("1. c) should return the sum of two numbers separated by a comma", () {
     // arrange
-    const value = "5,2";
+    const value = "7,1";
 
     // act
     final result = controller.add(value);
 
     // assert
-    expect(result, equals(7));
+    expect(result, equals(8));
+  });
+  test("2) should return correct sum for multiple comma-separated numbers", () {
+    // arrange
+    const value = "4,8,7,4,1";
+
+    // act
+    final result = controller.add(value);
+
+    // assert
+    expect(result, equals(24));
   });
 }

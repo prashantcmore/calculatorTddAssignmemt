@@ -20,4 +20,17 @@ void main() {
       expect(result, equals(0));
     });
   });
+  test(
+    "1. b) should return number itself when input is a single numeric string",
+    () {
+      // arrange
+      const value = "1";
+
+      // act
+      final result = controller.add(value);
+
+      // assert
+      expect(result, equals(1));
+    },
+  );
 }

@@ -44,14 +44,30 @@ void main() {
     // assert
     expect(result, equals(8));
   });
-  test("2) should return correct sum for multiple comma-separated numbers", () {
-    // arrange
-    const value = "4,8,7,4,1";
+  test(
+    "1.d) should return correct sum for multiple comma-separated numbers",
+    () {
+      // arrange
+      const value = "4,8,7,4,1";
 
-    // act
-    final result = controller.add(value);
+      // act
+      final result = controller.add(value);
 
-    // assert
-    expect(result, equals(24));
-  });
+      // assert
+      expect(result, equals(24));
+    },
+  );
+  test(
+    "2. should return the sum when numbers are separated by commas and new lines",
+    () {
+      // arrange
+      const value = "1\n2,3";
+
+      // act
+      final result = controller.add(value);
+
+      // assert
+      expect(result, equals(6));
+    },
+  );
 }

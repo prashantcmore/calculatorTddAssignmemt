@@ -33,4 +33,15 @@ void main() {
       expect(result, equals(1));
     },
   );
+
+  test("1. c) should return the sum of two numbers separated by a comma", () {
+    // arrange
+    const value = "5,2";
+
+    // act
+    final result = controller.add(value);
+
+    // assert
+    expect(result, equals(7));
+  });
 }

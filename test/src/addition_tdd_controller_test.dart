@@ -83,4 +83,14 @@ void main() {
       expect(result, equals(9));
     },
   );
+  test("3. should return correct sum using a custom delimiter", () {
+    // arrange
+    const value = "//;\n8;4;1";
+
+    // act
+    final result = controller.add(value);
+
+    // assert
+    expect(result, equals(13));
+  });
 }

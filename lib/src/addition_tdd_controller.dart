@@ -36,7 +36,7 @@ class AdditionTDDController {
     numbers = numbersString.split(delimiter);
 
     final negativeNumbers = <int>[];
-    bool hasNegatives = false;
+    bool hasNegativeNumbers = false;
 
     for (var number in numbers) {
       final num = int.tryParse(number);
@@ -46,15 +46,15 @@ class AdditionTDDController {
 
       if (num < 0) {
         negativeNumbers.add(num);
-        hasNegatives = true;
+        hasNegativeNumbers = true;
       } else if (num > 1000) {
         continue;
-      } else if (!hasNegatives) {
+      } else if (!hasNegativeNumbers) {
         result += num;
       }
     }
 
-    if (hasNegatives) {
+    if (hasNegativeNumbers) {
       final errorMessage =
           "negative numbers not allowed: ${negativeNumbers.join(",")}";
       print(errorMessage);

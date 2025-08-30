@@ -108,10 +108,26 @@ void main() {
       },
     );
     test(
-      "4. b) should throw an exception with message when input contains negative numbers",
+      "4. b) should throw an exception with message when input string contains negative number",
       () {
         // arrange
-        const value = "-3,-4,5,6";
+        const value = "-3,5";
+        const errorMessage = "negative numbers not allowed: -3";
+
+        try {
+          // act
+          controller.add(value);
+        } catch (e) {
+          // assert
+          expect(e.toString(), contains(errorMessage));
+        }
+      },
+    );
+    test(
+      "4. c) should throw an exception when multiple negative numbers are present in the input",
+      () {
+        // arrange
+        const value = "-3,-4,3,4";
         const errorMessage = "negative numbers not allowed: -3,-4";
 
         try {

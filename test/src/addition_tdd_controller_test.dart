@@ -58,7 +58,7 @@ void main() {
     },
   );
   test(
-    "2. should return the sum when numbers are separated by commas and new lines",
+    "2. a) should return the sum when numbers are separated by commas and new lines",
     () {
       // arrange
       const value = "1\n2,3";
@@ -68,6 +68,19 @@ void main() {
 
       // assert
       expect(result, equals(6));
+    },
+  );
+  test(
+    "2. b) should handle literal \\n characters between numbers when user input is from the text field",
+    () {
+      // arrange
+      const value = "2\\n3,4";
+
+      // act
+      final result = controller.add(value);
+
+      // assert
+      expect(result, equals(9));
     },
   );
 }

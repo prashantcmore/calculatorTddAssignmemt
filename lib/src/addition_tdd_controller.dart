@@ -47,8 +47,6 @@ class AdditionTDDController {
       if (num < 0) {
         negativeNumbers.add(num);
         hasNegativeNumbers = true;
-      } else if (num > 1000) {
-        continue;
       } else if (!hasNegativeNumbers) {
         result += num;
       }

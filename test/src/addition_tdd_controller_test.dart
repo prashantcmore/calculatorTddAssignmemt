@@ -93,7 +93,7 @@ void main() {
     // assert
     expect(result, equals(13));
   });
-  group("5. Negative numbers", () {
+  group("4. Negative numbers", () {
     test(
       "4. a) should throw an exception when a negative number is passed in input string",
       () {

@@ -93,17 +93,35 @@ void main() {
     // assert
     expect(result, equals(13));
   });
-  test(
-    "4. should throw an exception when a negative number is passed in input string",
-    () {
-      // arrange
-      const value = "-3,-4,5,6";
+  group("5. Negative numbers", () {
+    test(
+      "4. a) should throw an exception when a negative number is passed in input string",
+      () {
+        // arrange
+        const value = "-3,-4,5,6";
 
-      // act
-      action() => controller.add(value);
+        // act
+        action() => controller.add(value);
 
-      // assert
-      expect(action, throwsA(isA<Exception>()));
-    },
-  );
+        // assert
+        expect(action, throwsA(isA<Exception>()));
+      },
+    );
+    test(
+      "4. b) should throw an exception with message when input contains negative numbers",
+      () {
+        // arrange
+        const value = "-3,-4,5,6";
+        const errorMessage = "negative numbers not allowed: -3,-4";
+
+        try {
+          // act
+          controller.add(value);
+        } catch (e) {
+          // assert
+          expect(e.toString(), contains(errorMessage));
+        }
+      },
+    );
+  });
 }
